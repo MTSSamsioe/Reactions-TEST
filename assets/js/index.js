@@ -1,4 +1,4 @@
-let clock = 7;
+let clock = 60;
 
 function runclock() {
 
@@ -58,13 +58,56 @@ function wordAndColChange() {
   let randomBottomColor = colorsArray[randomNumber()]
   document.getElementById("bottomWord").style.color = randomBottomColor ;
   
+  
+  
 
 }
 
-function checkCorrectAnswer() {
+function checkCorrectAnswerIfYes() {
+  
+  // Top word and color of bottom word
+  let topWordOnScreen = document.getElementById("topWord").innerText;
+  let bottomColorOnScreen = document.getElementById("bottomWord").style.color;
+  // Change Captial letters to lower case so they can compare to colors
+  let toLowerCaseWords = topWordOnScreen.toLowerCase() ;
+  // If statement that compares that the to word and the color of the bottom word match
+
+  let score = parseInt(document.getElementById("score").innerText);
+  if (toLowerCaseWords == bottomColorOnScreen) {
+    
+    document.getElementById("score").innerText = ++score ;
+  } else {
+    
+    document.getElementById("score").innerText = --score ;
+  }
 
 }
+
+function checkCorrectAnswerIfNo() {
+  
+  // Top word and color of bottom word
+  let topWordOnScreen = document.getElementById("topWord").innerText;
+  let bottomColorOnScreen = document.getElementById("bottomWord").style.color;
+  // Change Captial letters to lower case so they can compare to colors
+  let toLowerCaseWords = topWordOnScreen.toLowerCase() ;
+  // If statement that compares that the to word and the color of the bottom word match
+  console.log(toLowerCaseWords)
+  
+  
+  let score = parseInt(document.getElementById("score").innerText);
+  if (toLowerCaseWords !== bottomColorOnScreen) {
+    
+    document.getElementById("score").innerText = ++score ;
+  } else {
+    
+    document.getElementById("score").innerText = --score ;
+  }
+
+}
+
 
 function highScore() {
-
+// adds endscore to high score array
+ let finalScore = document.getElementById("score").textContent;
+ 
 }
