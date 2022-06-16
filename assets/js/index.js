@@ -1,3 +1,4 @@
+let highScoreArray = [];
 let clock = 60;
 
 function runclock() {
