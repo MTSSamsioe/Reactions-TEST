@@ -1,12 +1,15 @@
-let highScoreArray = [];
-let clock = 60;
+let highScoreArray = [0];
+highScoreArray.push(11)
 
-function runclock() {
 
-}
+let clock = 20;
+
+
 
 function start() {
 
+  // Sets score to 0
+  document.getElementById("score").innerHTML = 0
   // hides starta button while function is running
   document.getElementById('startBtn').style.visibility = "hidden";
   // show answer buttons
@@ -24,8 +27,16 @@ document.getElementById('timeLeft').innerHTML=clock;
 --clock;
   if (clock === -2){
     clearInterval(interval);
-    clock = 7;
+    clock = 20;
+    // Changes time to game over
     document.getElementById('timeLeft').innerHTML='Game over';
+    // Push score to high score
+    highScore()
+    console.log(highScoreArray)
+    
+    // show answer buttons
+    document.getElementById("yes").style.visibility = "hidden";
+    document.getElementById("no").style.visibility = "hidden";
     // Show start button and hide answerbuttons
     document.getElementById('startBtn').style.visibility = "visible";
     //document.getElementsByClassName("btn").style.visibility = "hidden"
@@ -92,7 +103,7 @@ function checkCorrectAnswerIfNo() {
   // Change Captial letters to lower case so they can compare to colors
   let toLowerCaseWords = topWordOnScreen.toLowerCase() ;
   // If statement that compares that the to word and the color of the bottom word match
-  console.log(toLowerCaseWords)
+ 
   
   
   let score = parseInt(document.getElementById("score").innerText);
@@ -109,6 +120,9 @@ function checkCorrectAnswerIfNo() {
 
 function highScore() {
 // adds endscore to high score array
- let finalScore = document.getElementById("score").textContent;
- 
+ let finalScore = parseInt(document.getElementById("score").textContent);
+  highScoreArray.push(finalScore)
+  highScoreArray.sort()
+  highScoreArray.reverse()
+  document.getElementById("highScore").innerHTML = highScoreArray[0]
 }
