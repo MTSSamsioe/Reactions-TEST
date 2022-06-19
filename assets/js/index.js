@@ -18,7 +18,7 @@ function start() {
   // Changes words and colors of the game for initial question
   wordAndColChange()
 
-  // code is from https://www.codegrepper.com/code-examples/javascript/add+countdown+time+to+game+javascript
+// code is from https://www.codegrepper.com/code-examples/javascript/add+countdown+time+to+game+javascript
 
 let interval = setInterval(function(){
     
